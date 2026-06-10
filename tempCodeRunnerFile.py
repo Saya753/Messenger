@@ -1,0 +1,5 @@
+app.send_private_message("negin", "zeinab", "Hello")
+    app.send_private_message("zeinab", "negin", "Hi..How u doing?")
+    app.send_private_message("negin", "zeinab", "Thanks.What's up sis?")
+    app.search_in_chat("negin", "zeinab", 3)
+    app.delete_private_message("negin", "zeinab", 1)

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "text": "Helloooo",
+    "sender": "Negin",
+    "timestamp": "2025-06-09 20:55:58",
+    "replies": []
+  },
+  {
+    "id": 2,
+    "text": "What's up",
+    "sender": "Hossein",
+    "timestamp": "2025-06-09 20:55:58",
+    "replies": []
+  },
+  {
+    "id": 3,
+    "text": "Helloooo",
+    "sender": "Negin",
+    "timestamp": "2025-06-09 20:57:50",
+    "replies": []
+  },
+  {
+    "id": 4,
+    "text": "What's up",
+    "sender": "Hossein",
+    "timestamp": "2025-06-09 20:57:50",
+    "replies": []
+  },
+  {
+    "id": 5,
+    "text": "Helloooo",
+    "sender": "Negin",
+    "timestamp": "2025-06-09 21:00:14",
+    "replies": []
+  },
+  {
+    "id": 6,
+    "text": "What's up",
+    "sender": "Hossein",
+    "timestamp": "2025-06-09 21:00:14",
+    "replies": []
+  },
+  {
+    "id": 7,
+    "text": "Helloooo",
+    "sender": "Negin",
+    "timestamp": "2025-06-09 21:07:53",
+    "replies": []
+  },
+  {
+    "id": 8,
+    "text": "What's up",
+    "sender": "Hossein",
+    "timestamp": "2025-06-09 21:07:53",
+    "replies": []
+  },
+  {
+    "id": 9,
+    "text": "Helloooo",
+    "sender": "Negin",
+    "timestamp": "2025-06-09 21:08:55",
+    "replies": []
+  },
+  {
+    "id": 10,
+    "text": "What's up",
+    "sender": "Hossein",
+    "timestamp": "2025-06-09 21:08:55",
+    "replies": []
+  }
+]
