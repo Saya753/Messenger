@@ -12,7 +12,11 @@ MESSAGE_FILE = "massage.json"
 def save_users(users_list):
     data = []
     for user in users_list:
+<<<<<<< HEAD
         data.append({"username": user.username, "user_id": user.user_id, "messages": user.messages})
+=======
+        data.append({"username": user.username, "user_id": user.user_id, "messages": user.messages, "password": user.password})
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
     
     with open(USER_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -26,7 +30,11 @@ def load_users():
         
     users = []
     for u in data:
+<<<<<<< HEAD
         user = User(u["username"], u["user_id"])
+=======
+        user = User(u["username"], u["user_id"], u.get("password"))
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
         user.messages = u.get("massages", [])
         users.append(user)
     return users

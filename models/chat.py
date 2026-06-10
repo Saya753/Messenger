@@ -14,8 +14,13 @@ class PrivateChat:
         receiver = self.user2 if sender == self.user1 else self.user1
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         msg = Message(self.next_massage_id, text, sender, receiver, timestamp)
+<<<<<<< HEAD
         self.messages.insert(msg)
         self.next_massage_id += 1
+=======
+        self.messages.insert(msg)  # داخل درخت bst
+        self.next_massage_id += 1  # ای دی برای پیام بعدی
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
         return msg
         
     def get_all_messages(self):

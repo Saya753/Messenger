@@ -24,12 +24,29 @@ class HashTable:
     def insert(self, key, user):
         index = self.hash_function(key)
         new_node = UserNode(user)
+<<<<<<< HEAD
         if self.table[index] is None:
             self.table[index] = new_node
         else:
             new_node.next = self.table[index]
             self.table[index] = new_node
             
+=======
+        if self.table[index] is None: # اگر ذاکت خالی باشه
+            self.table[index] = new_node
+        else:                                    # برخورد یعنی باکت پره پس باید بریم جلو
+            new_node.next = self.table[index]
+            self.table[index] = new_node
+            
+            # current = self.table[index]
+            # while current.next:     # میریم تا آخر زنجیره
+            #     if current.key == key:  # اگر کاربر از قبل وجود داشت → بروزرسانی
+            #         current.user = user
+            #         return
+            #     current = current.next
+            # current.next = new_node  # در نهایت اضافه‌کردن به انتهای لیست پیوندی
+            
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
     def get(self, key):
         index = self.hash_function(key)
         current = self.table[index]
@@ -44,10 +61,17 @@ class HashTable:
         current = self.table[index]
         prev = None
         while current:
+<<<<<<< HEAD
             if current.user.username == key:
                 if prev:
                     prev.next = current.next
                 else:
+=======
+            if current.user.username == key: # کاربر پیدا شد
+                if prev:                     # وسط لیست یعنی یه کاربر قبلی داره
+                    prev.next = current.next
+                else:                        # اول گره هست
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
                     self.table[index] = current.next
                 return True
             prev = current
@@ -63,9 +87,15 @@ class HashTable:
                 current = current.next
             print("None")
             
+<<<<<<< HEAD
     def to_list(self):
         all_users = []
         for bucket in self.table:
+=======
+    def to_list(self): # برای اینکه بیاد کاربر ها رو به صورت یک لیست مرتب کنه برای ذخیره توی فایل
+        all_users = []
+        for bucket in self.table: # پیماییش کل خونه های هش
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
             current = bucket
             while current:
                 all_users.append(current.user)

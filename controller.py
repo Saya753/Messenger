@@ -7,6 +7,10 @@ from models.chat import PrivateChat
 from storage.storage_handler import save_chats, load_chats
 from storage.storage_handler import load_users, save_users
 from datetime import datetime
+<<<<<<< HEAD
+=======
+import hashlib
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
 
 class AppController:
     def __init__(self):
@@ -116,14 +120,24 @@ class AppController:
         return self.private_chats[key]
     
     def get_chat_messages(self, username1, username2):
+<<<<<<< HEAD
         chat = self.get_or_create_chat(username1, username2)
         return chat.get_all_messages()
+=======
+        # chat = self.get_or_create_chat(username1, username2)
+        # return chat.get_all_messages()
+        return self.get_private_chat_messages(username1, username2)
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
 
     def send_private_message(self, sender, receiver, text):
         if not self.users.get(sender) or not self.users.get(receiver):
             return None
         chat = self.get_or_create_private_chat(sender, receiver)
         msg = chat.send_message(sender, text)
+<<<<<<< HEAD
+=======
+        self.save_data()
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
         return msg.id
     
     def get_private_chat_messages(self, user1, user2):
@@ -132,8 +146,15 @@ class AppController:
 
     def reply_to_private_message(self, user1, user2, message_id, reply_text):
         chat = self.get_or_create_private_chat(user1, user2)
+<<<<<<< HEAD
         return chat.reply_to_message(message_id, reply_text)
     
+=======
+        result = chat.reply_to_message(message_id, reply_text)
+        self.save_data()  # این خط ............................................................................
+        return result
+
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
     def delete_private_message(self, user1, user2, message_id):
         user1 = user1
         user2 = user2
@@ -145,7 +166,11 @@ class AppController:
 
         chat = self.private_chats[key]
         result = chat.messages.delete(message_id) 
+<<<<<<< HEAD
 
+=======
+        self.save_data()
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
         if result:
             print(f"[INFO] Message with id {message_id} deleted successfuly")
             self.save_data()
@@ -172,7 +197,11 @@ class AppController:
             if current_user not in key:
                 continue
 
+<<<<<<< HEAD
             for msg in chat.get_messages():
+=======
+            for msg in chat.get_all_messages():
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
                 if query_id is not None and msg.id == query_id:
                     return [{
                         "chat_with": chat.user2 if chat.user1 == current_user else chat.user1,
@@ -189,5 +218,30 @@ class AppController:
                         "sender": msg.sender,
                         "timestamp": msg.timestamp
                     })
+<<<<<<< HEAD
 
         return results
+=======
+        return results
+    
+    @staticmethod
+    def hash_password(password):
+        return hashlib.sha256(password.encode()).hexdigest()
+    
+    def register_user(self, username, password):
+        if self.users.get(username):
+            return False
+        hashed_pw = self.hash_password(password)
+        new_user = User(username, self.next_user_id, hashed_pw)
+        self.users.insert(username, new_user)
+        self.next_user_id += 1
+        self.save_data()
+        return True
+    
+    def login_user(self, username, password):
+        user = self.users.get(username)
+        if not user:
+            return False
+        hashed_input = self.hash_password(password)
+        return user.password == hashed_input
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449

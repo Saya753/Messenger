@@ -104,7 +104,11 @@ from controller import AppController
 def main():
 
     app = AppController()
+<<<<<<< HEAD
     app.private_chats = {} 
+=======
+   # app.private_chats = {} 
+>>>>>>> 9d89458f4f382f9116d2062a1d84b6fabd3f9449
 
     # print("Add User📥")
     # app.add_user("Negin")
